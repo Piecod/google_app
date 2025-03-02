@@ -1,0 +1,51 @@
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+
+# Ignore system files
+.idea/
+.DS_Store
+.vscode/
+
+# Ignore Expo and React Native build files
+build/
+dist/
+.expo/
+.expo-shared/
+android/app/build/
+ios/Pods/
+
+package-lock.json
+
+# dependencies
+node_modules/
+
+# Expo
+web-build/
+expo-env.d.ts
+
+# Native
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
+
+app-example
