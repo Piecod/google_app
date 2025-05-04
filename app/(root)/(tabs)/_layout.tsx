@@ -1,17 +1,21 @@
-import { View, Text, Image } from 'react-native';
-import React from 'react';
-import { Tabs } from 'expo-router';
-import icons from '@/constants/icons';
+import { View, Text, Image } from "react-native";
+import React from "react";
+import { Tabs } from "expo-router";
+import icons from "@/constants/icons";
 
 const TabIcon = ({ focused, icon, title }: { focused: boolean; icon: any; title: string }) => (
     <View className="flex-1 mt-3 flex flex-col items-center">
         <Image
             source={icon}
-            tintColor={focused ? '#0061ff' : '#666876'}
+            tintColor={focused ? "#0061ff" : "#666876"}
             resizeMode="contain"
             className="size-6"
         />
-        <Text className={`${focused ? 'text-primary-300 font-rubik-medium' : 'text-black-200 font-rubik'} text-xs w-full text-center mt-1`}>
+        <Text
+            className={`${
+                focused ? "text-primary-300 font-rubik-medium" : "text-black-200 font-rubik"
+            } text-xs w-full text-center mt-1`}
+        >
             {title}
         </Text>
     </View>
@@ -31,6 +35,7 @@ const TabsLayout = () => {
                 },
             }}
         >
+            {/* ✅ Visible tabs */}
             <Tabs.Screen
                 name="index"
                 options={{
@@ -42,12 +47,22 @@ const TabsLayout = () => {
                 }}
             />
             <Tabs.Screen
-                name="explore"
+                name="analytics"
                 options={{
-                    title: 'Explore',
+                    title: 'Analytics',
                     headerShown: false,
                     tabBarIcon: ({ focused }) => (
-                        <TabIcon focused={focused} icon={icons.search} title="Explore" />
+                        <TabIcon focused={focused} icon={icons.search} title="Analytics" />
+                    ),
+                }}
+            />
+            <Tabs.Screen
+                name="chatbot"
+                options={{
+                    title: 'Chatbot',
+                    headerShown: false,
+                    tabBarIcon: ({ focused }) => (
+                        <TabIcon focused={focused} icon={icons.chat} title="Chatbot" />
                     ),
                 }}
             />
@@ -61,6 +76,13 @@ const TabsLayout = () => {
                     ),
                 }}
             />
+
+            {/* ❌ Hidden tabs */}
+            <Tabs.Screen name="inputs" options={{ href: null }} />
+            <Tabs.Screen name="analytics/chart" options={{ href: null }} />
+            <Tabs.Screen name="analytics/data" options={{ href: null }} />
+            <Tabs.Screen name="analytics/risk" options={{ href: null }} />
+            <Tabs.Screen name="analytics/correlations" options={{ href: null }} />
         </Tabs>
     );
 };
